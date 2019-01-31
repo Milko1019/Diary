@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var EntrySchema = new Schema({
 
-    author: String,
+   
     date: { type: Date, default: Date.now },
     title: String,
     entry: String
