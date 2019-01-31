@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
+  "dependencies": {
+    "react-router-dom": "^4.3.1"
+  }
+=======
   "name": "diary",
   "version": "1.0.0",
   "description": "Personal Diary App",
@@ -23,4 +28,5 @@
     "url": "https://github.com/Milko1019/Diary/issues"
   },
   "homepage": "https://github.com/Milko1019/Diary#readme"
+>>>>>>> 8063dfb460934da5600d030a60d86f55a8927bbd
 }
