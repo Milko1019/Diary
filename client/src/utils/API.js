@@ -15,7 +15,7 @@ export default {
     },
     // Saves a book to the database
     saveEntry: function(entryData) {
-      return axios.post("/api/entry", entryData);
+      return axios.post("/entries/api/entry", entryData);
     },
 
     getEntriesList: function() {

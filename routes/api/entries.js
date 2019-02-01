@@ -4,7 +4,7 @@ const entries = require("../../controllers/entry");
 // Matches with "/api/entries"
 router.route("/")
   .get(entries.findAll)
-  .post(entries.create);
+ ;
 
   // Matches with "/api/entries/:id"
 router
@@ -12,5 +12,8 @@ router
 .get(entries.findById)
 .put(entries.update)
 .delete(entries.remove);
+
+router.route("/api/entry")
+.post(entries.create);
 
 module.exports = router;
