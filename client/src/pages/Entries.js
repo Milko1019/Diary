@@ -65,7 +65,7 @@ class Entries extends Component{
                                             disabled={!(this.state.date && this.state.entry)}
                                             onClick={this.handleFormSubmit}
                                         >
-                                            Submit Book
+                                            Submit Entry
                                         </FormBtn>
                                     </form>
                                 </div>
