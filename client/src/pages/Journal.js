@@ -27,8 +27,11 @@ class Journal extends Component{
     };
 
     deleteEntry = id => {
+        console.log("Id:",id)
         API.deleteEntry(id)
-          .then(res => this.loadEntries())
+          .then(res => {
+            console.log("The response",res)  
+            this.loadEntries()})
           .catch(err => console.log(err));
     };
 
