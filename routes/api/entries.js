@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const entries = require("../../controllers/entry");
 
-// Matches with "/api/entries"
+// Matches with "/api/entries" // user input
 router.route("/")
-  .get(entries.findAll)
+
  ;
 
   // Matches with "/api/entries/:id"
@@ -14,6 +14,7 @@ router
 .delete(entries.remove);
 
 router.route("/api/entry")
-.post(entries.create);
+.post(entries.create)
+.get(entries.findAll);
 
 module.exports = router;
