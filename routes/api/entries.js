@@ -10,11 +10,16 @@ router.route("/")
 router
 .route("/:id")
 .get(entries.findById)
-.put(entries.update)
-.delete(entries.remove);
+.put(entries.update);
+
 
 router.route("/api/entry")
 .post(entries.create)
+
 .get(entries.findAll);
 
+
+router.route("/api/entry/:id")
+.delete(entries.remove)
+// /entries/api/entry/:id
 module.exports = router;

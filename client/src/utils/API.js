@@ -11,7 +11,7 @@ export default {
     },
     // Deletes the entry with the given id
     deleteEntry: function(id) {
-      return axios.delete("/api/books/" + id);
+      return axios.delete("/entries/api/entry/" + id);
     },
     // Saves an entry to the database
     saveEntry: function(entryData) {
