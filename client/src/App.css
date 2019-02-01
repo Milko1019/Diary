@@ -3,7 +3,7 @@
   justify-content: center;
   font-family: cursive;
 
-  }
+}
 
 #botNavBar{
   height: 40px;
@@ -17,5 +17,11 @@ body{
 }
 
 .card{
-  opacity: 0.9;
+  opacity: 0.95;
+}
+
+.profilebtn{
+  display: flex; 
+  justify-content: center;
+
 }

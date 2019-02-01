@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Journal from "./pages/Journal";
 import Entries from "./pages/Entries";
 import Profile from "./pages/Profile";
-// import Search from "./pages/Search";
+import Search from "./pages/Search";
 import './App.css'
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/journal" component={Journal} />
               <Route exact path="/entry" component={Entries} />
-              {/* <Route exact path="/search" component={Search} /> */}
+              <Route exact path="/search" component={Search} />
             </div>
         </>
       </Router>
