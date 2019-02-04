@@ -10,11 +10,11 @@ var UserSchema = new Schema({
         unique: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     },
-    username: {
-        type: String,
-        trim: true,
-        required: "Username is Required"
-    },
+    // username: {
+    //     type: String,
+    //     trim: true,
+    //     required: "Username is Required"
+    // },
     password: {
         type: String,
         trim: true,

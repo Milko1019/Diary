@@ -19,7 +19,11 @@ export default {
     },
 
     getEntriesList: function() {
-        return axios.get("api/entries/list");
+        return axios.get("/api/entries/list");
+    },
+    // Saves a user to the database
+    saveLogin: function(entryData) {
+      console.log("API Utils before axio call",entryData)
+      return axios.post("/users/api/user/", entryData)
     }
-
   };
