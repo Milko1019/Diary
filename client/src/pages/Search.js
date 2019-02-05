@@ -44,13 +44,7 @@ class Search extends Component{
                         <Col size="md-8">
                         <div className="card mb-3 ">
                             
-                            <h1 className="text-center">Search By Entry Name:</h1>
-                                {/* <Alert
-                                type="danger"
-                                style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
-                                >
-                                {this.state.error}
-                                </Alert> */}
+                            <h2 className="text-center">Search By Entry Name:</h2>
                                 <br></br>
                                 <SearchForm
                                     handleFormSubmit={this.handleFormSubmit}

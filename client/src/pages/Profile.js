@@ -17,7 +17,7 @@ class Profile extends Component{
                             <div className="profilebtn">
                                 <a href="/entry" className="btn btn-secondary btn-lg active " role="button" aria-pressed="true">Entry</a>
                                 <a href="/journal" className="btn btn-secondary btn-lg active " role="button" aria-pressed="true">Journal</a>
-                                <a href="/search" className="btn btn-secondary btn-lg active " role="button" aria-pressed="true">Search</a>
+                                <a href="/journal/search" className="btn btn-secondary btn-lg active " role="button" aria-pressed="true">Search</a>
                             </div>
                         </Col>
                     <Col size="md-3" />

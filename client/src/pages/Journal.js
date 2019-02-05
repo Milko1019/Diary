@@ -1,17 +1,25 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
-// import Search from "./Search";
+import Search from "./Search";
 import API from "../utils/API";
 import DeleteBtn from "../components/Deletebtn";
 import { List, ListItem } from "../components/List";
 import { Col, Row, Container } from "../components/Grid";
+import Modal from "../components/Modal"
+import { FormBtn } from "../components/Form/index";
+import ListItemDetail from "../components/ListItemDetail"
 
 class Journal extends Component{
     state={
-        entries: [],
-        date: Date,
+        entries: [{}],
+        date: "",
         title: String,
-        entry: String
+        entry: String,
+        cdate: "",
+        ctitle: String,
+        centry: String,
+        searchbar: true,
+        show: false
     }
 
     componentDidMount() {
@@ -19,20 +27,33 @@ class Journal extends Component{
     }
 
     loadEntries = () => {
+        console.log("Load Entry")
         API.getEntries()
+        
           .then(res =>
-            this.setState({ entries: res.data, date: "", title: "", entry: "" })
+            {console.log(res.data)
+            this.setState({ entries: res.data,  title: "", date: "", entry: "" })}
           )
           .catch(err => console.log(err));
     };
 
-    deleteEntry = id => {
-        console.log("Id:",id)
-        API.deleteEntry(id)
-          .then(res => {
-            console.log("The response",res)  
-            this.loadEntries()})
-          .catch(err => console.log(err));
+   
+    displaySearchBar=() =>{
+        this.setState({searchbar:false},() => {console.log("Search bar")})
+    }
+
+    showModal = (curretEntry) => {
+        console.log(curretEntry,"Show Modal");
+        this.setState({ 
+            show: true,
+            centry: curretEntry.entry,
+            ctitle:curretEntry.title,
+            cdate: curretEntry.date
+         });
+    };
+    
+    hideModal = () => {
+        this.setState({ show: false });
     };
 
     render (){
@@ -48,28 +69,38 @@ class Journal extends Component{
                                 {this.state.entries.length ? (
                                     <List>
                                         {this.state.entries.map(entry => (
-                                        <ListItem key={entry._id}>
-                                            <Link to={"/entries/" + entry._id}>
-                                            <strong>
-                                                {entry.title} {entry.data} {entry.entry}
-                                            </strong>
-                                            </Link>
-                                            <DeleteBtn onClick={() => this.deleteEntry(entry._id)} />
-                                        </ListItem>
+                                        <ListItemDetail key={entry._id}
+                                                  showModal={this.showModal}
+                                                   title = {entry.title}
+                                                   date = {entry.date}
+                                                   entry = {entry.entry}
+                                                   id={entry._id}
+                                                   loadEntries={this.loadEntries}>
+                                           
+                                        </ListItemDetail>
                                         ))}
                                     </List>
                                 ) :
                                 (<h3>No Results to Display</h3>)
                                 }
+                                {this.state.show ? <>
+                                            <Modal show={this.state.show} handleClose={this.hideModal}>
+                                                <p>{this.state.ctitle}</p>
+                                                <p>{this.state.cdate}</p>
+                                                <p>{this.state.centry}</p>
+                                            </Modal> </>: 
+                                <div></div>}
 
-                            
-                                {/* <Link to={`${props.match.url}/search`} role="button" className="btn btn-link">
-                                    Search for Specific Entries
-                                </Link>{" "}
+                                {this.state.searchbar ? 
+                                <button className="btn btn-link" onClick = {this.displaySearchBar} >Search for Specific Entries</button>
+
+                                    :
+                                 <Search />}
+                                
                                 <Link to="/journal" role="button" className="btn btn-link">
                                     Look at Most Recent Entries
                                 </Link>
-                                <Route exact path={`${props.match.url}/search`} component={Search} /> */}
+                                
                             </div>
                             </Col>
                         </>

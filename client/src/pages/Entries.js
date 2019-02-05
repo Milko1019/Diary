@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../components/Grid";
 
 class Entries extends Component{
     state = {
-        date: Date,
+        date: "",
         title: String,
         entry: String
     }
