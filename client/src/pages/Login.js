@@ -27,8 +27,8 @@ class Login extends Component {
                 password: this.state.password
             
             })
-                .then(() => {
-                    console.log("API",this.state.email + this.state.password)
+                .then((res) => {
+                    console.log("API",res,this.state.email + this.state.password)
                     this.props.history.push("/profile")
                 })
                 .catch(err => console.log(err));
