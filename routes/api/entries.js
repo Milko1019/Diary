@@ -15,11 +15,11 @@ router
 
 router.route("/api/entry")
 .post(entries.create)
-
 .get(entries.findAll);
 
 
 router.route("/api/entry/:id")
 .delete(entries.remove)
 // /entries/api/entry/:id
+
 module.exports = router;
