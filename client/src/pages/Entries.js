@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import { Input, TextArea, FormBtn } from "../components/From/index";
+import { Input, TextArea, FormBtn } from "../components/Form/index";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
 
 class Entries extends Component{
     state = {
-        date: Date,
+        date: "",
         title: String,
         entry: String
     }
@@ -25,7 +25,9 @@ class Entries extends Component{
             title: this.state.title,
             date: this.state.date,
             entry: this.state.entry
+            
           })
+          .then (() => this.props.history.push("/Profile"))
             // .then(res => this.loadEntry())
             .catch(err => console.log(err));
         }
