@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
-// import Search from "./Search";
+import Search from "./Search";
 import API from "../utils/API";
 import DeleteBtn from "../components/Deletebtn";
 import { List, ListItem } from "../components/List";
@@ -11,7 +11,8 @@ class Journal extends Component{
         entries: [],
         date: Date,
         title: String,
-        entry: String
+        entry: String,
+        searchbar: true
     }
 
     componentDidMount() {
@@ -34,6 +35,9 @@ class Journal extends Component{
             this.loadEntries()})
           .catch(err => console.log(err));
     };
+    displaySearchBar=() =>{
+        this.setState({searchbar:false},() => {console.log("Search bar")})
+    }
 
     render (){
         return(
@@ -51,7 +55,7 @@ class Journal extends Component{
                                         <ListItem key={entry._id}>
                                             <Link to={"/entries/" + entry._id}>
                                             <strong>
-                                                {entry.title} {entry.data} {entry.entry}
+                                                {entry.title} {entry.data}
                                             </strong>
                                             </Link>
                                             <DeleteBtn onClick={() => this.deleteEntry(entry._id)} />
@@ -61,15 +65,16 @@ class Journal extends Component{
                                 ) :
                                 (<h3>No Results to Display</h3>)
                                 }
+                                {this.state.searchbar ? 
+                                <button className="btn btn-link" onClick = {this.displaySearchBar} >Search for Specific Entries</button>
 
-                            
-                                {/* <Link to={`${props.match.url}/search`} role="button" className="btn btn-link">
-                                    Search for Specific Entries
-                                </Link>{" "}
+                                    :
+                                    <Search />}
+                                
                                 <Link to="/journal" role="button" className="btn btn-link">
                                     Look at Most Recent Entries
                                 </Link>
-                                <Route exact path={`${props.match.url}/search`} component={Search} /> */}
+                                
                             </div>
                             </Col>
                         </>
