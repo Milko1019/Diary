@@ -14,12 +14,12 @@ function SearchResults(props) {
                   <ListItem key={entry._id}>
                       <Modal show={this.state.show} handleClose={this.hideModal}>
                           <p>{entry.title}</p>
-                          <p>{entry.data}</p>
+                          <p>{entry.date.substr(0,10)}</p>
                           <p>{entry.entry}</p>
                       </Modal>
                       <button type="button btn-primary" onClick={this.showModal}>
                           <strong>
-                              {entry.title} {entry.data}
+                              {entry.title} {entry.date}
                           </strong>
                       </button>
                       <DeleteBtn onClick={() => this.deleteEntry(entry._id)} />

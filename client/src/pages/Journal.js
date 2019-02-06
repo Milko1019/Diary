@@ -2,10 +2,13 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import API from "../utils/API";
+// import DeleteBtn from "../components/Deletebtn";
 import { List } from "../components/List";
 import { Col, Row, Container } from "../components/Grid";
 import Modal from "../components/Modal"
+// import { FormBtn } from "../components/Form/index";
 import ListItemDetail from "../components/ListItemDetail"
+
 
 class Journal extends Component{
     state={
@@ -46,7 +49,7 @@ class Journal extends Component{
             show: true,
             centry: curretEntry.entry,
             ctitle:curretEntry.title,
-            cdate: curretEntry.date
+            // cdate: curretEntry.date
          });
     };
     

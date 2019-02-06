@@ -5,9 +5,10 @@ const userRoutes = require("./users");
 
 
 // routes
-router.use("/entries", entryRoutes);// /entries/api/entry
+router.use("/entries", entryRoutes);// /entries
 router.use("/users", userRoutes);
 
 //router.use(userRoutes);
+//router.use(userRoutes); // /users/
 
 module.exports = router;
