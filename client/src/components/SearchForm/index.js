@@ -5,7 +5,7 @@ import "./style.css";
 function SearchForm(props) {
   return (
     <form className="search">
-    <br></br>
+      <br></br>
       <div className="form-group">
         <label htmlFor="search"></label>
         <input

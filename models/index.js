@@ -4,5 +4,6 @@ module.exports = {
     
     Entry: require("./Entry"),
     User: require("./User"),
-    
+    Image: require("./Image"),
+
   };

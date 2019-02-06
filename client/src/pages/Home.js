@@ -19,7 +19,7 @@ const Home = () => {
                                         name="mood"
                                         //value={this.state.email}
                                         // onChange={this.handleChange}
-                                        placeholder="Mood"
+                                        placeholder=""
                                     />
                                     {/* <Input
                                         <div class="dropdown">
