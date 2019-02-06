@@ -3,6 +3,7 @@ import API from "../utils/API";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
 import { Col, Row, Container } from "../components/Grid";
+import Display from "../components/Display";
 
 class Search extends Component{
 
@@ -13,11 +14,11 @@ class Search extends Component{
         error: ""        
     };
 
-    componentDidMount() {
-        API.getEntriesList()
-          .then(res => this.setState({ entries: res.data.message }))
-          .catch(err => console.log(err));
-    }
+    // componentDidMount() {
+    //     API.getEntries()
+    //       .then(res => this.setState({ entries: res.data.message }))
+    //       .catch(err => console.log(err));
+    // }
     
     handleInputChange = event => {
         this.setState({ search: event.target.value });
@@ -25,12 +26,15 @@ class Search extends Component{
     
     handleFormSubmit = event => {
         event.preventDefault();
-            API.getEntriesList(this.state.search)
+            API.searchEntry(this.state.search)
                 .then(res => {
+                    console.log("The result from api",res);
                 if (res.data.status === "error") {
                     throw new Error(res.data.message);
                 }
-                this.setState({ results: res.data.message, error: "" });
+                this.setState({ results: res.data, error: "" },()=>{
+                    console.log("The state from api",this.state.results);
+                });
                 })
                 .catch(err => this.setState({ error: err.message }));
     };
@@ -51,7 +55,13 @@ class Search extends Component{
                                     handleInputChange={this.handleInputChange}
                                     entries={this.state.entries}
                                 />
-                                <SearchResults results={this.state.results} />
+                               {this.state.results.map((entry)=> (
+                                  <Display 
+                                     title = {entry.title} 
+                                     date = {entry.date}
+                                     key ={entry._id}>
+                                     </Display>
+                               ))}
                         </div>
                         </Col>
                     <Col size="md-2" />
