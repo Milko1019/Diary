@@ -24,7 +24,7 @@ module.exports = {
     create: function (req, res) {
         db.Entry
             .create(req.body)
-            .then(dbModel =>{ console.log("Create method ",dbModel); res.json(dbModel)})
+            .then(dbModel => { console.log("Create method ", dbModel); res.json(dbModel) })
             .catch(err => res.status(422).json(err));
     },
     update: function (req, res) {
@@ -34,10 +34,9 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     remove: function (req, res) {
-        console.log("delete route")
         db.Entry
             .findByIdAndDelete({ _id: req.params.id })
-            .then(dbModel => {console.log("delete",dbModel); res.json(dbModel)})
+            .then(dbModel => { console.log("delete", dbModel); res.json(dbModel) })
             .catch(err => res.status(422).json(err));
     }
 };

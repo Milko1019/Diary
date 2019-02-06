@@ -15,15 +15,14 @@ class App extends Component {
       <Router>
         <>
           <Nav />
-            <div className="container">
-              <Route exact path="/" component={Home} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/journal" component={Journal} />
-              <Route path="/entry" component={Entries} />
-              <Route exact path={`/journal/search`} component={Search} />
-              {/* <Route exact path="/search" component={Search} /> */}
-            </div>
+          <div className="container">
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/journal" component={Journal} />
+            <Route path="/entry" component={Entries} />
+            <Route exact path={`/journal/search`} component={Search} />
+          </div>
         </>
       </Router>
     );

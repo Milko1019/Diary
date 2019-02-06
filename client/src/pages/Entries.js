@@ -1,11 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../components/Form/index";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import DatePicker from "../components/DatePicker"
 
 
-class Entries extends Component{
+class Entries extends Component {
     state = {
         startDate: "",
         date: "YYYY-MM-DD",
@@ -16,7 +16,7 @@ class Entries extends Component{
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-          [name]: value
+            [name]: value
         });
     };
 
@@ -38,71 +38,63 @@ class Entries extends Component{
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.date && this.state.entry) {
-          API.saveEntry({
-            title: this.state.title,
-            date: this.state.date,
-            entry: this.state.entry
-            
-          })
-          .then (() => this.props.history.push("/Profile"))
-            // .then(res => this.loadEntry())
-            .catch(err => console.log(err));
+            API.saveEntry({
+                title: this.state.title,
+                date: this.state.date,
+                entry: this.state.entry
+            })
+                .then(() => this.props.history.push("/Profile"))
+                .catch(err => console.log(err));
         }
     };
 
     render() {
-        return(
+        return (
             <Container fluid>
-            <br></br>
+                <br></br>
                 <Row>
                     <Col size="md-2" />
-                        <Col size="md-8">
-                            <>
+                    <Col size="md-8">
+                        <>
                             <br />
-                                <div className="card mb-3 ">
-                                    <h1>Entry</h1>
-                                    <form>
-                                        <Input
-                                            // value={this.state.title}
-                                            onChange={this.handleInputChange}
-                                            name="title"
-                                            placeholder="Title (optional)"
-                                        />
-                                       
-                                        <DatePicker 
+                            <div className="card mb-3 ">
+                                <h1>Entry</h1>
+                                <form>
+                                    <Input
+                                        onChange={this.handleInputChange}
+                                        name="title"
+                                        placeholder="Title (optional)"
+                                    />
+                                    <DatePicker 
                                             // onChange={this.handleDateChange}
                                             onChange={this.handleInputChange}
                                             name="date"
                                             placeholder="Date (required)"
-                                        />
-                                        
-                                        {/* <Input
-                                          
-                                            selected={this.state.startDate}
-                                            // onChange={this}
-                                            // dateFormat="yyyy/MM/dd"
-                                        
-                                            // value={this.state.date}
-                                            onChange={this.handleInputChange}
-                                            name="date"
-                                            placeholder="Date (required)"
-                                        /> */}
-                                        <TextArea
-                                            // value={this.state.entry}
-                                            onChange={this.handleInputChange}
-                                            name="entry"
-                                            placeholder="What's On Your Mind (required)"
-                                        />
-                                        <FormBtn
-                                            disabled={!(this.state.date && this.state.entry)}
-                                            onClick={this.handleFormSubmit}
-                                        >
-                                            Submit Entry
+                                    />
+                                    {/* <Input
+
+                                        selected={this.state.startDate}
+                                        // onChange={this}
+                                        // dateFormat="yyyy/MM/dd"
+                                        onChange={this.handleInputChange}
+                                        name="date"
+                                        placeholder="Date (required)"
+                                    /> */}
+                                    <TextArea
+                                        onChange={this.handleInputChange}
+                                        name="entry"
+                                        placeholder="What's On Your Mind (required)"
+                                    />
+                                    <FormBtn
+                                        disabled={!(this.state.date && this.state.entry)}
+                                        onClick={this.handleFormSubmit}
+                                    >
+                                        Submit Entry
                                         </FormBtn>
-                                    </form>
-                                </div>
-                            </>
-                        </Col>
+                                </form>
+                            </div>
+                        </>
+                    </Col>
                     <Col size="md-2" />
                 </Row>
             </Container>
