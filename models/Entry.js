@@ -8,7 +8,8 @@ var EntrySchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     date: { type: Date, default: Date.now },
     title: String,
-    entry: String
+    entry: String,
+    // imageURL: String 
 
 });
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+// import { addMilliseconds } from "date-fns";
 
 export default {
     // Gets all entries
@@ -31,5 +32,16 @@ export default {
     saveLogin: function(entryData) {
       console.log("API Utils before axio call",entryData)
       return axios.post("/users/api/user/", entryData)
+    },
+
+    saveImage: function(){
+      console.log("image save")
+      return axios.post("/images/api/image/");
+    },
+    
+    getImage: function(){
+      console.log("image posted")
+      return axios.get("/images/api/image/");
     }
+
   };
