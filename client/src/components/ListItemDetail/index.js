@@ -28,15 +28,6 @@ class ListItemDetail extends Component{
             console.log("The response") 
     };
 
-    // loadEntries = () => {
-    //     API.getEntries()
-        
-    //       .then(res =>
-    //         {console.log(res.data)
-    //         this.setState({ entries: res.data,  title: "", date: "", entry: "" })}
-    //       )
-    //       .catch(err => console.log(err));
-    // };
 
     render(){
        return(<div >

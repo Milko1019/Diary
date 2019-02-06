@@ -2,10 +2,14 @@ import React, {Component} from "react";
 import { Input, TextArea, FormBtn } from "../components/Form/index";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
+// import DatePicker from "react-datepicker";
+
+// import "react-datepicker/dist/react-datepicker.css";
 
 
 class Entries extends Component{
     state = {
+        startDate: "",
         date: "",
         title: String,
         entry: String
@@ -52,6 +56,11 @@ class Entries extends Component{
                                             placeholder="Title (optional)"
                                         />
                                         <Input
+                                          
+                                            selected={this.state.startDate}
+                                            // onChange={this}
+                                            // dateFormat="yyyy/MM/dd"
+                                        
                                             // value={this.state.date}
                                             onChange={this.handleInputChange}
                                             name="date"
