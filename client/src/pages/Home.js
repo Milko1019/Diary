@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, TextArea, FormBtn } from "../components/Form/index";
+import { Input } from "../components/Form/index";
 import { Col, Row, Container } from "../components/Grid";
 
 const Home = () => {

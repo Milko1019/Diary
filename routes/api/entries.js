@@ -17,6 +17,10 @@ router.route("/api/entry")
 .post(entries.create)
 .get(entries.findAll);
 
+// /entries/api/search/entry/you
+
+router.route("/api/search/entry/:title")
+.get(entries.findByTitle);
 
 router.route("/api/entry/:id")
 .delete(entries.remove)
