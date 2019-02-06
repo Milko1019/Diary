@@ -21,18 +21,16 @@ class Login extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.email.length > 0 && this.state.password.length > 0) {
-            console.log("before api call",this.state.email,this.state.password)
+            console.log("before api call", this.state.email, this.state.password)
             API.saveLogin({
                 email: this.state.email,
                 password: this.state.password
-            
             })
                 .then((res) => {
-                    console.log("API",res,this.state.email + this.state.password)
+                    console.log("API", res, this.state.email + this.state.password)
                     this.props.history.push("/profile")
                 })
                 .catch(err => console.log(err));
-            
         }
     };
 
@@ -49,15 +47,13 @@ class Login extends Component {
                                 <h1>Login</h1>
                                 <form>
                                     <Input
-                                         name="email"
-                                        //value={this.state.email}
+                                        name="email"
                                         onChange={this.handleChange}
                                         placeholder="Email (required)"
                                     />
                                     <Input
-                                       // value={this.state.password}
                                         onChange={this.handleChange}
-                                         name="password"
+                                        name="password"
                                         placeholder="Password (required)"
                                     />
                                     <FormBtn
