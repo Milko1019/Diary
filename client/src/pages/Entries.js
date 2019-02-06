@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../components/Form/index";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-// import DatePicker from "react-datepicker";
-
-// import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "../components/DatePicker"
 
 
 class Entries extends Component {
     state = {
         startDate: "",
-        date: "",
+        date: "YYYY-MM-DD",
         title: String,
         entry: String
     }
@@ -21,6 +19,21 @@ class Entries extends Component {
             [name]: value
         });
     };
+
+    handleDateChange = event => {
+            const pickedDate = event.path.to.value;
+            this.setState({
+                pickedDate}
+                );
+    };
+     
+    //   handleChange(date, event) {
+    //     const pickedDate = event.path.to.value;
+    //     this.setState({
+    //       startDate: date,
+    //       pickedDate
+    //     });
+    //   }
 
     handleFormSubmit = event => {
         event.preventDefault();
@@ -52,7 +65,13 @@ class Entries extends Component {
                                         name="title"
                                         placeholder="Title (optional)"
                                     />
-                                    <Input
+                                    <DatePicker 
+                                            // onChange={this.handleDateChange}
+                                            onChange={this.handleInputChange}
+                                            name="date"
+                                            placeholder="Date (required)"
+                                    />
+                                    {/* <Input
 
                                         selected={this.state.startDate}
                                         // onChange={this}
@@ -60,7 +79,7 @@ class Entries extends Component {
                                         onChange={this.handleInputChange}
                                         name="date"
                                         placeholder="Date (required)"
-                                    />
+                                    /> */}
                                     <TextArea
                                         onChange={this.handleInputChange}
                                         name="entry"
