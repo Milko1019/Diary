@@ -31,7 +31,8 @@ class ListItemDetail extends Component {
     render() {
         return (<div >
             <strong>
-                <li className="list-group-item" onClick={this.passListDetails}> {this.props.title} {this.props.date}
+                <li className="list-group-item" onClick={this.passListDetails}> {this.props.title} 
+                    {/* {this.props.date} */}
                     <DeleteBtn onClick={() => this.deleteEntry(this.state.id)} />
                 </li>
             </strong>

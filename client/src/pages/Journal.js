@@ -41,6 +41,7 @@ class Journal extends Component {
         this.setState({ searchbar: false }, () => { console.log("Search bar") })
     }
 
+
     showModal = (curretEntry) => {
         console.log(curretEntry, "Show Modal");
         this.setState({
@@ -92,7 +93,7 @@ class Journal extends Component {
                                     <button className="btn btn-link" onClick={this.displaySearchBar} >Search for Specific Entries</button>
                                     :
                                     <Search />}
-                                <Link to="/journal" role="button" className="btn btn-link">
+                                <Link to="/journal" role="button" className="btn btn-link" show="false">
                                     Look at Most Recent Entries
                                 </Link>
                             </div>
