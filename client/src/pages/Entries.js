@@ -65,13 +65,13 @@ class Entries extends Component {
                                         name="title"
                                         placeholder="Title (optional)"
                                     />
-                                    <DatePicker 
+                                    {/* <DatePicker 
                                             // onChange={this.handleDateChange}
                                             onChange={this.handleInputChange}
                                             name="date"
                                             placeholder="Date (required)"
-                                    />
-                                    {/* <Input
+                                    /> */}
+                                    <Input
 
                                         selected={this.state.startDate}
                                         // onChange={this}
@@ -79,7 +79,7 @@ class Entries extends Component {
                                         onChange={this.handleInputChange}
                                         name="date"
                                         placeholder="Date (required)"
-                                    /> */}
+                                    />
                                     <TextArea
                                         onChange={this.handleInputChange}
                                         name="entry"
