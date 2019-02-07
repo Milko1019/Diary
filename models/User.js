@@ -14,7 +14,8 @@ var UserSchema = new Schema({
     //     type: String,
     //     trim: true,
     //     required: "Username is Required"
-    // },
+    // }, 
+    //do not use
     password: {
         type: String,
         trim: true,
